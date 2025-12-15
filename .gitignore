@@ -1,6 +1,6 @@
 # --- ASP.NET Core backend ---
-bin/
-obj/
+ecommerceApi/bin/
+ecommerceApi/obj/
 .vs/
 *.user
 *.suo

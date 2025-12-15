@@ -28,8 +28,8 @@ builder.Services.AddCors(options =>
 
 
 // Configure DbContext with SQLite
-var connectionString = builder.Configuration.GetConnectionString("products") 
-                       ?? "Data Source=products.db";
+var connectionString = builder.Configuration.GetConnectionString("ecommercedb") 
+                       ?? "Data Source=Ecommerce.db";
 
 // Register the DbContext with the service container
 builder.Services.AddDbContext<AppDbContext>(options =>
