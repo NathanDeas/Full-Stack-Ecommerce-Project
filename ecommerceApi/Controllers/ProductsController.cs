@@ -24,7 +24,7 @@ namespace EcommerceAPI.Controllers
 
         //GET: api/products/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct([FromRoute] int id)
         {   
             var product = await _context.Products.FindAsync(id);
             if (product == null)
