@@ -15,14 +15,14 @@ namespace EcommerceAPI.Controllers
         {
             _context = context;
         }
-        // GET: api/Products
+        // GET: api/Products Get all products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Products.ToListAsync();
         }
 
-        //GET: api/products/{id}
+        //GET: api/products/{id} Get product by ID
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct([FromRoute] int id)
         {   
@@ -34,7 +34,7 @@ namespace EcommerceAPI.Controllers
             return product;
         }
 
-        // POST: api/Products
+        // POST: api/Products Create a new product
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
@@ -44,7 +44,7 @@ namespace EcommerceAPI.Controllers
             return CreatedAtAction(nameof(GetProducts), new { id = product.Id }, product);
         }
 
-        // PUT: api/Products/{id}
+        // PUT: api/Products/{id} Update an existing product
         [HttpPut("{id}")]
         public async Task<ActionResult<Product>> UpdateProduct(int id, Product product)
         {
@@ -65,7 +65,7 @@ namespace EcommerceAPI.Controllers
             return Ok(eproduct);
         }
 
-        // DELETE: api/Products/{id}
+        // DELETE: api/Products/{id} Delete a product
         [HttpDelete("{id}")]
         public async Task<ActionResult<Product>> DeleteProduct(int id)
         {
@@ -76,7 +76,7 @@ namespace EcommerceAPI.Controllers
             }
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
-            return Ok(product);
+            return NoContent();
         }
     }
 }
