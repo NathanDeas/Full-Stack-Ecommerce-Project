@@ -1,14 +1,14 @@
 # --- ASP.NET Core backend ---
 ecommerceApi/bin/
 ecommerceApi/obj/
-.vs/
-*.user
-*.suo
+ecommerceApi/.vs/
+ecommerceApi/*.user
+ecommerceApi/*.suo
 
 # --- React/Vite frontend ---
-node_modules/
-dist/
-build/
+EcommerceClient/node_modules/
+EcommerceClient/dist/
+EcommerceClient/build/
 
 # --- Environment files ---
 .env.local
@@ -21,3 +21,4 @@ build/
 # --- OS junk ---
 .DS_Store
 Thumbs.db
+EcommerceClient/
