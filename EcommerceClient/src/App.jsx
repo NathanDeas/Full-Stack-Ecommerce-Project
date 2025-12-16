@@ -1,46 +1,20 @@
-import { useState, useEffect, use } from 'react'
+import React from "react";
+// import ProductsPage from "./products/pages/ProductsPage.jsx";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import ProductsPage from "./products/pages/ProductsPage.jsx"
+import Header from "./Header/components/header.jsx"
+
 
 function App() {
-// state to hold products
-const [products, setProducts] = useState([]);
-
-const request = new Request('http://localhost:5071/api/Products', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
-
-useEffect(() => {
-  fetch(request)
-    .then(response => response.json())
-    .then(data => setProducts(data))
-    .catch(error => console.error('Error fetching products:', error));
-}, []);
-function IsAvaliable(stock) {
-  if (stock > 0) {
-    return "Available";
-  }
-  return "Out of Stock";
-}
-
   return (
     <>
-    <div>
-      <h1>Product List</h1>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <p>{IsAvaliable(product.stock)}</p>
-          </li>
-        ))}
-      </ul>   
-    </div>
+    <BrowserRouter>
+    <Header />
+      <Routes>
+        <Route path="/" element={<ProductsPage />} />
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
-
 export default App
