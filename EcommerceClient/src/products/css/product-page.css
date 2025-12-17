@@ -1,0 +1,11 @@
+.products-page-container {
+    background-color: hsl(0, 0%, 10%);
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    /* top: 200px; */
+    display: flex;
+    justify-content: center;
+    min-height: 200%;
+    top: 75px;
+}

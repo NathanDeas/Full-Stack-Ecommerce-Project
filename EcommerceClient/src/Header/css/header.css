@@ -1,0 +1,41 @@
+.header-container {
+    height: 75px;
+    background-color: hsl(0, 0%, 10%);
+    color: hsl(0, 0%, 90%);
+    display: flex;
+    align-items:center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.header-container h1 {
+    color: hsl(0, 0%, 95%);
+    width: fit-content;
+    font-size: 3em;
+}
+.header-container nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.header-container nav a {
+    text-decoration: none;
+    color: hsl(0, 0%, 95%);
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 20px;
+}
+.header-container nav a:hover {
+    background-color: hsl(0, 0%, 30%);
+    transition: .5s ease;
+}
+
+.header-container nav .active {
+    background-color: hsl(213, 50%, 70%, .5);
+}

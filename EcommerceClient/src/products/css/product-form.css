@@ -1,0 +1,22 @@
+.post-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 80vw;
+    background-color: hsl(0, 0%, 20%);
+    padding: 20px;
+    border-radius: 10px;
+}
+.post-form label {
+    font-size: 2em;
+    font-weight: bold;
+    width: 50%;
+}
+.post-form input, textarea {
+    border-radius: 20px;
+    width: 50%;
+    height: 40px;
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
