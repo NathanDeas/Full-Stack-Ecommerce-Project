@@ -27,7 +27,8 @@ export async function getProductById(id) {
         }
     });
     if (!response.ok) {
-        throw new Error('Could not fetch product');
+        // throw new Error('Could not fetch product');
+        return null;
     }
     const data = await response.json();
     console.log("Fetched product:", data);
@@ -45,11 +46,9 @@ export async function deleteProductById(id) {
         }
     });
     if (!response.ok) {
-    throw new Error('Could not DELETE product');
+        throw new Error('Could not DELETE product');
     }
-    const data = await response.json();
-    console.log("DELETED product:", data);
-    return data;
+    return "Product Deleted";
 }
 
 export async function addProduct(Product) {

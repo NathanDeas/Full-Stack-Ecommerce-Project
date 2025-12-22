@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getProductById } from "../api/ProductsApi";
+import { deleteProductById } from "../api/ProductsApi";
+
 import ProductCard from "./ProductCard";
 
 
@@ -7,13 +9,17 @@ import ProductCard from "./ProductCard";
 
 function SearchForProduct({id}) {
     const [product,setProduct] = useState(null)
+    const [notFound, setNotFound] = useState(false)
       
     
     useEffect(() => {
         async function fetchData() {
+            setNotFound(false)
+            setProduct(null)
             const data = await getProductById(id);
             if (!data) {
-                return("Not Found")
+                setNotFound(true)
+                return 
             }
             else{
                 setProduct(data);
@@ -21,11 +27,20 @@ function SearchForProduct({id}) {
         } fetchData();
     }, [id]);
 
-    if (!product) return <p>Loading...</p>;
+    const handleDelete = async () =>
+    {
+        const status = await deleteProductById(id)
+        console.log(status)
+    }
+
+    if (!notFound && !product) return <p>Loading...</p>;
+    if (notFound) return <p>Product not found with id: {id}</p>;
     
     return (
         <>
-        <ProductCard product={product} />
+        
+            <ProductCard product={product} />
+            <button onClick={handleDelete}>Delete</button>
         </>
     )
 }
